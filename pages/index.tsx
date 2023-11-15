@@ -3,10 +3,12 @@ import { Palanquin } from "next/font/google";
 import { Slide } from "react-slideshow-image";
 import moment from "moment";
 import { FaQuoteRight } from "react-icons/fa6";
+import { BsArrowRight } from "react-icons/bs";
 
 import "moment/locale/id";
 import "react-slideshow-image/dist/styles.css";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 moment.locale("id");
 
@@ -129,6 +131,75 @@ export default function Home() {
           <div className="flex flex-col items-center font-bodoni text-white">
             <span className="text-2xl">{second}</span>
             <span className="text-sm">Detik</span>
+          </div>
+        </div>
+      </div>
+      <div className="pt-[5em]">
+        <div className="flex">
+          <div className="flex-1 relative">
+            <div className="absolute rotate-[270deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] right-[-30px]">The Bride</div>
+          </div>
+          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/testing/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
+            <div className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">N</div>
+          </div>
+        </div>
+        <div className="p-[32px]">
+          <div className="font-bodoni text-cyan text-right text-2xl pb-3">Neneng Spakbor Ngabers</div>
+          <div className="text-sm font-bold text-[#757575] text-right">Putri Pertama Dari</div>
+          <div className="text-sm text-[#757575] text-right">Bapak Komarudin dan Ibu Paijem</div>
+          <div className="mt-10 flex justify-end">
+            <Link href={"https://instagram.com"} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
+              Instagram
+              <BsArrowRight size={12} className="mt-0.5 ml-1"  />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="pt-[2em]">
+        <div className="flex">
+          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/testing/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
+            <div className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">D</div>
+          </div>
+          <div className="flex-1 relative">
+            <div className="absolute rotate-[90deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] left-[-35px]">The Groom</div>
+          </div>
+        </div>
+        <div className="p-[32px]">
+          <div className="font-bodoni text-cyan text-left text-2xl pb-3">Dadang Kopling Matic</div>
+          <div className="text-sm font-bold text-[#757575] text-left">Putra Pertama Dari</div>
+          <div className="text-sm text-[#757575] text-left">Bapak Karni Ilyas dan Sulastri</div>
+          <div className="mt-10 flex justify-start">
+            <Link href={"https://instagram.com"} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
+              Instagram
+              <BsArrowRight size={12} className="mt-0.5 ml-1"  />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="mt-[2em] bg-cyan p-[1.5em]">
+        <div className="w-[120px] mx-auto h-1 rounded-full bg-white mb-14"></div>
+        <div className="relative">
+          <div className="h-[280px] overflow-hidden">
+            <Image src={"/testing/2.jpg"} width={327} height={280} alt="" />
+          </div>
+          <div className="relative flex items-end top-[-70px]">
+            <div className="flex-1 pr-4">
+              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12").format("DD")}</div>
+              <div className="text-right text-white text-3xl font-bodoni my-4">{moment("2023-12-12").format("MM")}</div>
+              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12").format("YY")}</div>
+            </div>
+            <div className="w-[80%] bg-white py-[2em] px-[1em]">
+              <h2 className="text-2xl text-cyan uppercase text-right font-[500] tracking-[2px]">Akad Nikah</h2>
+              <div className="mt-5 text-sm text-[#757575] font-semibold text-right">{moment("2023-12-12").format("dddd, DD MMMM YYYY")}</div>
+              <div className="mb-4 text-sm text-[#757575] font-semibold text-right">Pukul {moment("2023-12-12").format("h:mm")} WIB</div>
+              <div className="text-xs tracking-[1px] text-cyan text-right leading-4">Jl. H. Merin, No 28, RT 001 / RW 004 Meruya Selatan, Kembangan, Jakarta Barat</div>
+              <div className="mt-8 flex justify-end">
+                <Link href={"https://maps.google.com"} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
+                  <span>Google Maps</span>
+                  <BsArrowRight size={12} className="mt-0.5 ml-2"  />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
