@@ -24,11 +24,11 @@ export default function Home() {
   const [second, setSecond] = useState<string>("00");
 
   const images = [
-    "/testing/1.jpg",
-    "/testing/2.jpg",
-    "/testing/3.jpg",
-    "/testing/4.jpg",
-    "/testing/5.jpg",
+    "/sample/1.jpg",
+    "/sample/2.jpg",
+    "/sample/3.jpg",
+    "/sample/4.jpg",
+    "/sample/5.jpg",
   ];
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function Home() {
         <div className="flex items-start">
           <div className="flex-1 relative overflow-hidden">
             <div className="h-[460px] relative">
-              <Slide arrows={false} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
+              <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
                 {images.map((d: any, i: number) => {
                   return (
                     <div className="each-slide-effect" key={i}>
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="flex-1 relative">
             <div className="absolute rotate-[270deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] right-[-30px]">The Bride</div>
           </div>
-          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/testing/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
+          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/sample/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
             <div className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">N</div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Home() {
       </div>
       <div className="pt-[2em]">
         <div className="flex">
-          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/testing/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
+          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/sample/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
             <div className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">D</div>
           </div>
           <div className="flex-1 relative">
@@ -180,7 +180,7 @@ export default function Home() {
         <div className="w-[120px] mx-auto h-1 rounded-full bg-white mb-14"></div>
         <div className="relative">
           <div className="h-[280px] overflow-hidden">
-            <Image src={"/testing/2.jpg"} width={327} height={280} alt="" />
+            <Image src={"/sample/2.jpg"} width={327} height={280} alt="" />
           </div>
           <div className="relative flex items-end top-[-70px]">
             <div className="flex-1 pr-4">
@@ -204,7 +204,7 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="h-[280px] overflow-hidden">
-            <Image src={"/testing/2.jpg"} width={327} height={280} alt="" />
+            <Image src={"/sample/2.jpg"} width={327} height={280} alt="" />
           </div>
           <div className="relative flex items-end top-[-70px]">
             <div className="w-[80%] bg-white py-[2em] px-[1em]">
@@ -229,8 +229,8 @@ export default function Home() {
       </div>
       <div className="mt-[4em] px-[1em]">
         <div className="relative">
-          <div className="relative top-0 w-[80%] h-[250px]" style={{backgroundImage: "url(/testing/6.jpg)", backgroundSize: "cover"}}></div>
-          <div className="absolute bottom-[-160px] right-0 w-[55%] h-[230px] border-[9px] border-r-0 border-white" style={{backgroundImage: "url(/testing/2.jpg)", backgroundSize: "cover"}}></div>
+          <div className="relative top-0 w-[80%] h-[250px]" style={{backgroundImage: "url(/sample/6.jpg)", backgroundSize: "cover"}}></div>
+          <div className="absolute bottom-[-160px] right-0 w-[55%] h-[230px] border-[9px] border-r-0 border-white" style={{backgroundImage: "url(/sample/2.jpg)", backgroundSize: "cover"}}></div>
         </div>
         <div className="relative mt-10">
           <div className="font-bodoni leading-10 italic text-6xl text-cyan">
@@ -273,7 +273,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <Image src={"/testing/3.jpg"} width={420} height={200} alt="" />
+          <Image src={"/sample/3.jpg"} width={420} height={200} alt="" />
         </div>
       </div>
       <div className="px-[1em] py-[5em]" style={{backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #EFF2EC 100%)"}}>
@@ -336,7 +336,7 @@ export default function Home() {
         </div>
       </div>
       <div className="relative h-[460px]">
-        <Slide arrows={false} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
+        <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
           {images.map((d: any, i: number) => {
             return (
               <div className="each-slide-effect" key={i}>
