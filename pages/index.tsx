@@ -347,6 +347,14 @@ export default function Home() {
             )
           })}
         </Slide>
+        <div className="absolute top-0 left-0 w-full h-full z-10" style={{backgroundImage: "linear-gradient(180deg, #A99D8700 0%, #95A682 100%)"}}>
+          <div className="flex flex-col justify-center items-center w-full h-full px-10">
+            <h2 className="font-bodoni text-white text-4xl italic text-center mb-10">Terimakasih</h2>
+            <p className="text-xs leading-4 text-white text-center mb-10">Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kami.</p>
+            <p className="uppercase text-white text-sm font-bold text-center tracking-[2px] mb-2">Kami yang berbahagia</p>
+            <p className="font-bodoni text-white text-2xl text-center italic">Neneng & Dadang</p>
+          </div>
+        </div>
       </div>
     </main>
   )
