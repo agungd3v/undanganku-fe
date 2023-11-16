@@ -184,14 +184,14 @@ export default function Home() {
           </div>
           <div className="relative flex items-end top-[-70px]">
             <div className="flex-1 pr-4">
-              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12").format("DD")}</div>
-              <div className="text-right text-white text-3xl font-bodoni my-4">{moment("2023-12-12").format("MM")}</div>
-              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12").format("YY")}</div>
+              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12 09:00").format("DD")}</div>
+              <div className="text-right text-white text-3xl font-bodoni my-4">{moment("2023-12-12 09:00").format("MM")}</div>
+              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12 09:00").format("YY")}</div>
             </div>
             <div className="w-[80%] bg-white py-[2em] px-[1em]">
               <h2 className="text-2xl text-cyan uppercase text-right font-[500] tracking-[2px]">Akad Nikah</h2>
-              <div className="mt-5 text-sm text-[#757575] font-semibold text-right">{moment("2023-12-12").format("dddd, DD MMMM YYYY")}</div>
-              <div className="mb-4 text-sm text-[#757575] font-semibold text-right">Pukul {moment("2023-12-12").format("h:mm")} WIB</div>
+              <div className="mt-5 text-sm text-[#757575] font-semibold text-right">{moment("2023-12-12 09:00").format("dddd, DD MMMM YYYY")}</div>
+              <div className="mb-4 text-sm text-[#757575] font-semibold text-right">Pukul {moment("2023-12-12 09:00").format("hh:mm")} WIB</div>
               <div className="text-xs tracking-[1px] text-cyan text-right leading-4">Jl. H. Merin, No 28, RT 001 / RW 004 Meruya Selatan, Kembangan, Jakarta Barat</div>
               <div className="mt-8 flex justify-end">
                 <Link href={"https://maps.google.com"} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
@@ -201,6 +201,79 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="relative">
+          <div className="h-[280px] overflow-hidden">
+            <Image src={"/testing/2.jpg"} width={327} height={280} alt="" />
+          </div>
+          <div className="relative flex items-end top-[-70px]">
+            <div className="w-[80%] bg-white py-[2em] px-[1em]">
+              <h2 className="text-2xl text-cyan uppercase text-left font-[500] tracking-[2px]">Resepsi</h2>
+              <div className="mt-5 text-sm text-[#757575] font-semibold text-left">{moment("2023-12-12 10:00").format("dddd, DD MMMM YYYY")}</div>
+              <div className="mb-4 text-sm text-[#757575] font-semibold text-left">Pukul {moment("2023-12-12 10:00").format("hh:mm")} WIB</div>
+              <div className="text-xs tracking-[1px] text-cyan text-left leading-4">Jl. H. Merin, No 28, RT 001 / RW 004 Meruya Selatan, Kembangan, Jakarta Barat</div>
+              <div className="mt-8 flex justify-start">
+                <Link href={"https://maps.google.com"} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
+                  <span>Google Maps</span>
+                  <BsArrowRight size={12} className="mt-0.5 ml-2"  />
+                </Link>
+              </div>
+            </div>
+            <div className="flex-1 pl-4">
+              <div className="text-left text-white text-3xl font-bodoni">{moment("2023-12-12 10:00").format("DD")}</div>
+              <div className="text-left text-white text-3xl font-bodoni my-4">{moment("2023-12-12 10:00").format("MM")}</div>
+              <div className="text-left text-white text-3xl font-bodoni">{moment("2023-12-12 10:00").format("YY")}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-[4em] px-[1em]">
+        <div className="relative">
+          <div className="relative top-0 w-[80%] h-[250px]" style={{backgroundImage: "url(/testing/6.jpg)", backgroundSize: "cover"}}></div>
+          <div className="absolute bottom-[-160px] right-0 w-[55%] h-[230px] border-[9px] border-r-0 border-white" style={{backgroundImage: "url(/testing/2.jpg)", backgroundSize: "cover"}}></div>
+        </div>
+        <div className="relative mt-10">
+          <div className="font-bodoni leading-10 italic text-6xl text-cyan">
+            Love
+            <br />
+            Story
+          </div>
+          <div className="px-[2em] mt-24">
+            <div className="mt-10">
+              <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Pertemuan</h2>
+              <p className="italic text-[#757575] text-[13px] mt-3">Tidak ada yang kebetulan di dunia ini, semua sudah tersusun rapih oleh sang maha kuasa, kita tidak bisa memilih kepada siapa kita akan jatuh cinta, kami bertemu pada tahun 2021, tepatnya saat kami sedang bekerja di kantor yang sama, tidak ada yang pernah menyangka bahwa pertemuan itu membawa kami pada suatu ikatan cinta suci hari ini.</p>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Pendekatan</h2>
+              <p className="italic text-[#757575] text-[13px] text-right mt-3">Katanya cinta dapat tumbuh dengan kebersamaan, seiring berjalannya waktu kami semakin dekat, berada di kantor yang sama membuat kami cukup sering bertemu, memang tidak ada kata pacaran diantara kami tapi alam seakan terus berkonspirasi untuk menyatukan kami berdua.</p>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Lamaran</h2>
+              <p className="italic text-[#757575] text-[13px] mt-3">Kehandak-Nya menuntun kami pada sebuah pertemuan yang tak pernah di sangka hingga akhirnya membawa kami pada sebuah ikatan suci yang dicintai-Nya, kami melangsungkan acara lamaran di bulan Februari 2023 lalu.</p>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Menikah</h2>
+              <p className="italic text-[#757575] text-[13px] text-right mt-3">Percayalah, bukan karna bertemu lalu berjodoh tapi karna berjodoh lah maka kami dipertemukan, kami memutuskan untuk mengikrarkan janji suci pernikahan kami di bulan November ini insya allah Sebagai mana yang pernah dikatakan oleh saydina Ali bin abi thalib : " Apa yang menjadi takdirmu akan menemukan jalannya untuk menemukanmu."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-[5em] bg-cyan p-[1em]">
+        <div className="bg-white px-[1.5em] py-[5em]">
+          <h2 className="text-3xl font-bodoni italic text-cyan text-center">Our Gallery</h2>
+        </div>
+        <div className="py-[4em] px-[2em]">
+          <h2 className="text-3xl font-bodoni italic text-white text-center">Wedding Gift</h2>
+          <p className="text-white text-[13px] leading-4 text-center mt-4">Mungkin karna jarak, waktu, ataupun keadaan yang menghalangi untuk ikut hadir dalam acara pernikahan kami, silahkan klik tombol dibawah untuk mengirimkan hadiah secara cashless</p>
+          <div className="flex items-center justify-center mt-14 mb-10">
+            <div className="cursor-pointer border-y-2 py-[12px] px-[24px] uppercase tracking-[2px] flex items-center text-white text-xs font-bold gap-2">
+              Klik Disini
+              <div className="mt-1">
+                <BsArrowRight />
+              </div>
+            </div>
+          </div>
+          <Image src={"/testing/3.jpg"} width={420} height={200} alt="" />
         </div>
       </div>
     </main>
