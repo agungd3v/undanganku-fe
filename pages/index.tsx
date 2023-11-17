@@ -4,11 +4,13 @@ import { Slide } from "react-slideshow-image";
 import moment from "moment";
 import { FaQuoteRight } from "react-icons/fa6";
 import { BsArrowRight } from "react-icons/bs";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import ReactAudioPlayer from "react-audio-player";
+import { FiPlayCircle, FiActivity } from "react-icons/fi";
 
 import "moment/locale/id";
 import "react-slideshow-image/dist/styles.css";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 
 moment.locale("id");
 
@@ -22,6 +24,8 @@ export default function Home() {
   const [hour, setHour] = useState<string>("00");
   const [minute, setMinute] = useState<string>("00");
   const [second, setSecond] = useState<string>("00");
+  const [pauseBackSound, setPauseBackSound] = useState<boolean>(false);
+  const backSound = useRef<any>(null);
 
   const images = [
     "/sample/1.jpg",
@@ -30,6 +34,16 @@ export default function Home() {
     "/sample/4.jpg",
     "/sample/5.jpg",
   ];
+
+  const toggleBackSound = () => {
+    if (!pauseBackSound) {
+      setPauseBackSound(true);
+      return backSound.current.audioEl.current.pause();
+    } else {
+      setPauseBackSound(false);
+      return backSound.current.audioEl.current.play();
+    }
+  }
 
   useEffect(() => {
     const countdownWedding = setInterval(() => {
@@ -401,6 +415,23 @@ export default function Home() {
             <p className="font-bodoni text-white text-2xl text-center italic">Neneng & Dadang</p>
           </div>
         </div>
+      </div>
+      <div
+        className={`fixed w-[40px] h-[40px] bg-cyan p-0.5 bottom-3 right-3 rounded-full z-20 ${!pauseBackSound ? "animate-spin" : ""}`}
+        onClick={toggleBackSound}
+      >
+        <div className="w-full text-cyan h-full rounded-full bg-white flex items-center justify-center">
+          {pauseBackSound ? <FiPlayCircle size={22} /> : <FiActivity size={22} />}
+        </div>
+      </div>
+      <div className="hidden">
+        <ReactAudioPlayer
+          controls
+          src="/assets/music.mp3"
+          autoPlay={true}
+          loop={true}
+          ref={backSound}
+        />
       </div>
     </main>
   )
