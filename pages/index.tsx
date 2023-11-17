@@ -260,7 +260,53 @@ export default function Home() {
       </div>
       <div className="mt-[5em] bg-cyan p-[1em]">
         <div className="bg-white px-[1.5em] py-[5em]">
-          <h2 className="text-3xl font-bodoni italic text-cyan text-center">Our Gallery</h2>
+          <h2 className="text-3xl font-bodoni italic text-cyan text-center mb-10">Our Gallery</h2>
+          <div className="relative h-[140px]">
+            <Slide
+              arrows={false}
+              duration={1000}
+              indicators={false}
+              transitionDuration={4000}
+              autoplay={true}
+              infinite={true}
+              canSwipe={false}
+              slidesToScroll={1}
+              slidesToShow={2}
+            >
+              {images.map((d: any, i: number) => {
+                return (
+                  <div className="each-slide-effect" key={i}>
+                    <div className="h-[140px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                        <span></span>
+                    </div>
+                  </div>
+                )
+              })}
+            </Slide>
+          </div>
+          <div className="relative h-[140px] rotate-180">
+            <Slide
+              arrows={false}
+              duration={1000}
+              indicators={false}
+              transitionDuration={4000}
+              autoplay={true}
+              infinite={true}
+              canSwipe={false}
+              slidesToScroll={1}
+              slidesToShow={2}
+            >
+              {images.map((d: any, i: number) => {
+                return (
+                  <div className="each-slide-effect rotate-180" key={i}>
+                    <div className="h-[140px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                        <span></span>
+                    </div>
+                  </div>
+                )
+              })}
+            </Slide>
+          </div>
         </div>
         <div className="py-[4em] px-[2em]">
           <h2 className="text-3xl font-bodoni italic text-white text-center">Wedding Gift</h2>
