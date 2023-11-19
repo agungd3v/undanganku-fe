@@ -8,6 +8,7 @@ import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
 import { FiPlayCircle, FiActivity } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 import "moment/locale/id";
 import "react-slideshow-image/dist/styles.css";
@@ -79,7 +80,28 @@ export default function Undanganku({data}: CProps) {
     <>
       <div className="h-screen">
         <div className="flex items-start">
-          <div className="flex-1 relative overflow-hidden">
+          <motion.div
+            className="flex-1 relative overflow-hidden"
+            variants={{
+              hidden: {
+                opacity: 0,
+                x: -200
+              },
+              show: {
+                opacity: 1,
+                x: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              x: {
+                duration: 2
+              }
+            }}
+          >
             <div className="h-[460px] relative">
               <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
                 {images.map((d: any, i: number) => {
@@ -92,34 +114,141 @@ export default function Undanganku({data}: CProps) {
                   )
                 })}
               </Slide>
-              <div className="absolute z-10 bottom-0 w-full py-3" style={{backgroundImage: "linear-gradient(transparent, rgba(0, 0, 0, 0.4))"}}>
+              <motion.div className="absolute z-10 bottom-0 w-full py-3" style={{backgroundImage: "linear-gradient(transparent, rgba(0, 0, 0, 0.4))"}}>
                 <h1 className="text-white text-center font-bold font-bodoni text-5xl">Wedding</h1>
-              </div>
+              </motion.div>
             </div>
             <div className="bg-cyan py-[10px]">
               <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">Neneng & Dadang</h3>
             </div>
-          </div>
-          <div className="w-[20%] h-[460px] relative">
+          </motion.div>
+          <motion.div
+            className="w-[20%] h-[460px] relative"
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: -200
+              },
+              show: {
+                opacity: 1,
+                y: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              y: {
+                duration: 2
+              }
+            }}
+          >
             <div className="rotate-90 whitespace-nowrap absolute top-[70px] left-[-50px] text-cyan uppercase text-xs tracking-[5px]">
               The Wedding
             </div>
-            <div className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl">{moment("2023-12-12").format("MMM")}</div>
-          </div>
+            <motion.div
+              className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  x: 200
+                },
+                show: {
+                  opacity: 1,
+                  x: 0
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              transition={{
+                ease: "linear",
+                duration: 2,
+                x: {
+                  duration: 2
+                }
+              }}
+            >
+              {moment("2023-12-12").format("MMM")}
+            </motion.div>
+          </motion.div>
         </div>
         <div className="flex items-start gap-4">
           <div className="w-[65%] mt-6">
-            <div className="border-b-2 border-cyan relative">
+            <motion.div
+              className="border-b-2 border-cyan relative"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  x: -200
+                },
+                show: {
+                  opacity: 1,
+                  x: 0
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              transition={{
+                ease: "linear",
+                duration: 1,
+                x: {
+                  duration: 1
+                }
+              }}
+            >
               <div className="absolute scale-x-[-1] opacity-10 top-2 left-2"><FaQuoteRight size={60} color="#95A682" /></div>
-            </div>
-            <div className="relative text-cyan top-[36px] left-3 italic text-sm leading-4">
+            </motion.div>
+            <motion.div
+              className="relative text-cyan top-[36px] left-3 italic text-sm leading-4"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  x: -200
+                },
+                show: {
+                  opacity: 1,
+                  x: 0
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              transition={{
+                ease: "linear",
+                duration: 2,
+                x: {
+                  duration: 2
+                }
+              }}
+            >
               Love is when imperfection being perfection.
-            </div>
+            </motion.div>
           </div>
-          <div className="flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3">
+          <motion.div
+            className="flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3"
+            variants={{
+              hidden: {
+                opacity: 0,
+                x: 200
+              },
+              show: {
+                opacity: 1,
+                x: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              x: {
+                duration: 2
+              }
+            }}
+          >
             <div className="text-6xl">{moment("2023-12-12").format("DD")}</div>
             <div className="mt-1 text-3xl flex justify-end">{moment("2023-12-12").format("YYYY")}</div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="py-[5em] px-[1.5em] bg-cyan">
