@@ -252,14 +252,100 @@ export default function Undanganku({data}: CProps) {
         </div>
       </div>
       <div className="py-[5em] px-[1.5em] bg-cyan">
-        <div className="flex items-center gap-4">
-          <div className="border-b border-white w-[48px]"></div>
-          <div className="text-white font-bodoni italic text-2xl">QS Ar-rum 21</div>
+        <div className="flex items-center gap-4 overflow-hidden">
+          <motion.div
+            className="border-b border-white w-[48px]"
+            variants={{
+              hidden: {
+                opacity: 0,
+                x: -100
+              },
+              show: {
+                opacity: 1,
+                x: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              x: {
+                duration: 2
+              }
+            }}
+          ></motion.div>
+          <motion.div
+            className="text-white font-bodoni italic text-2xl"
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: -100
+              },
+              show: {
+                opacity: 1,
+                y: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              y: {
+                duration: 2
+              }
+            }}
+          >
+            QS Ar-rum 21
+          </motion.div>
         </div>
-        <div className="italic text-white text-sm mt-8">
+        <motion.div
+          className="italic text-white text-sm mt-8"
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 200
+            },
+            show: {
+              opacity: 1,
+              y: 0
+            }
+          }}
+          initial="hidden"
+          animate="show"
+          transition={{
+            ease: "linear",
+            duration: 2,
+            y: {
+              duration: 2
+            }
+          }}
+        >
           "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-        </div>
-        <div className="flex items-center justify-around border-t border-b border-white py-5 mt-16">
+        </motion.div>
+        <motion.div
+          className="flex items-center justify-around border-t border-b border-white py-5 mt-16"
+          variants={{
+            hidden: {
+              opacity: 0,
+              x: 200
+            },
+            show: {
+              opacity: 1,
+              x: 0
+            }
+          }}
+          initial="hidden"
+          animate="show"
+          transition={{
+            ease: "linear",
+            duration: 2,
+            x: {
+              duration: 2
+            }
+          }}
+        >
           <div className="flex flex-col items-center font-bodoni text-white">
             <span className="text-2xl">{day}</span>
             <span className="text-sm">Hari</span>
@@ -276,18 +362,94 @@ export default function Undanganku({data}: CProps) {
             <span className="text-2xl">{second}</span>
             <span className="text-sm">Detik</span>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="pt-[5em]">
         <div className="flex">
-          <div className="flex-1 relative">
+          <motion.div
+            className="flex-1 relative"
+            variants={{
+              hidden: {
+                opacity: 0
+              },
+              show: {
+                opacity: 1
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2
+            }}
+          >
             <div className="absolute rotate-[270deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] right-[-30px]">The Bride</div>
-          </div>
-          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/sample/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
-            <div className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">N</div>
-          </div>
+          </motion.div>
+          <motion.div
+            className="w-[60%] h-[300px] relative overflow-hidden"
+            style={{backgroundImage: `url(/sample/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}
+            variants={{
+              hidden: {
+                x: 200
+              },
+              show: {
+                x: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              x: {
+                duration: 2
+              }
+            }}
+          >
+            <motion.div
+              className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold"
+              variants={{
+                hidden: {
+                  y: -100
+                },
+                show: {
+                  y: 0
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              transition={{
+                ease: "linear",
+                duration: 3,
+                y: {
+                  duration: 3
+                }
+              }}
+            >
+              N
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="p-[32px]">
+        <motion.div
+          className="p-[32px]"
+          variants={{
+            hidden: {
+              x: 200
+            },
+            show: {
+              x: 0
+            }
+          }}
+          initial="hidden"
+          animate="show"
+          transition={{
+            ease: "linear",
+            duration: 2,
+            x: {
+              duration: 2
+            }
+          }}
+        >
           <div className="font-bodoni text-cyan text-right text-2xl pb-3">Neneng Spakbor Ngabers</div>
           <div className="text-sm font-bold text-[#757575] text-right">Putri Pertama Dari</div>
           <div className="text-sm text-[#757575] text-right">Bapak Komarudin dan Ibu Paijem</div>
@@ -297,18 +459,94 @@ export default function Undanganku({data}: CProps) {
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="pt-[2em]">
         <div className="flex">
-          <div className="w-[60%] h-[300px] relative" style={{backgroundImage: `url(/sample/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}>
-            <div className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">D</div>
-          </div>
-          <div className="flex-1 relative">
+          <motion.div
+            className="w-[60%] h-[300px] relative overflow-hidden"
+            style={{backgroundImage: `url(/sample/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}
+            variants={{
+              hidden: {
+                x: -100
+              },
+              show: {
+                x: 0
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2,
+              x: {
+                duration: 2
+              }
+            }}
+          >
+            <motion.div
+              className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold"
+              variants={{
+                hidden: {
+                  y: -100
+                },
+                show: {
+                  y: 0
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              transition={{
+                ease: "linear",
+                duration: 3,
+                y: {
+                  duration: 3
+                }
+              }}
+            >
+              D
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="flex-1 relative"
+            variants={{
+              hidden: {
+                opacity: 0
+              },
+              show: {
+                opacity: 1
+              }
+            }}
+            initial="hidden"
+            animate="show"
+            transition={{
+              ease: "linear",
+              duration: 2
+            }}
+          >
             <div className="absolute rotate-[90deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] left-[-35px]">The Groom</div>
-          </div>
+          </motion.div>
         </div>
-        <div className="p-[32px]">
+        <motion.div
+          className="p-[32px]"
+          variants={{
+            hidden: {
+              x: -200
+            },
+            show: {
+              x: 0
+            }
+          }}
+          initial="hidden"
+          animate="show"
+          transition={{
+            ease: "linear",
+            duration: 2,
+            x: {
+              duration: 2
+            }
+          }}
+        >
           <div className="font-bodoni text-cyan text-left text-2xl pb-3">Dadang Kopling Matic</div>
           <div className="text-sm font-bold text-[#757575] text-left">Putra Pertama Dari</div>
           <div className="text-sm text-[#757575] text-left">Bapak Karni Ilyas dan Sulastri</div>
@@ -318,7 +556,7 @@ export default function Undanganku({data}: CProps) {
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="mt-[2em] bg-cyan p-[1.5em]">
         <div className="w-[120px] mx-auto h-1 rounded-full bg-white mb-14"></div>
