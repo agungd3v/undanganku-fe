@@ -12,12 +12,15 @@ import { motion } from "framer-motion";
 
 import "moment/locale/id";
 import "react-slideshow-image/dist/styles.css";
+import { useEffectOnce } from "usehooks-ts";
 
 moment.locale("id");
 
 interface CProps {
 	data: any;
 }
+
+const chunk = 6;
 
 export default function Undanganku({data}: CProps) {
   const rts = useRouter();
@@ -26,6 +29,10 @@ export default function Undanganku({data}: CProps) {
   const [hour, setHour] = useState<string>("00");
   const [minute, setMinute] = useState<string>("00");
   const [second, setSecond] = useState<string>("00");
+  const [slideFirst, setSlideFirst] = useState<any[]>([]);
+  const [slideLast, setSlideLast] = useState<any[]>([]);
+  const [galleryTop, setGalleryTop] = useState<any[]>([]);
+  const [galleryBot, setGalleryBot] = useState<any[]>([]);
   const [pauseBackSound, setPauseBackSound] = useState<boolean>(false);
   const backSound = useRef<any>(null);
 
@@ -49,7 +56,7 @@ export default function Undanganku({data}: CProps) {
 
   useEffect(() => {
     const countdownWedding = setInterval(() => {
-      const endDate = moment("2023-12-12").valueOf();
+      const endDate = moment(data.akad_date).valueOf();
       const dateNow = new Date().getTime();
       const timeLeft = endDate - dateNow;
 
@@ -70,6 +77,11 @@ export default function Undanganku({data}: CProps) {
         setSecond("00");
       }
     }, 1000);
+
+    setGalleryTop(data.photos.slice(0, chunk));
+    setGalleryBot(data.photos.slice(chunk, chunk + data.photos.length));
+    setSlideFirst(data.photos.filter((sla: any) => sla.prefix == "slide1"));
+    setSlideLast(data.photos.filter((sla: any) => sla.prefix == "slide2"));
 
     return () => {
       clearInterval(countdownWedding);
@@ -104,10 +116,10 @@ export default function Undanganku({data}: CProps) {
           >
             <div className="h-[460px] relative">
               <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
-                {images.map((d: any, i: number) => {
+                {slideFirst.map((d: any, i: number) => {
                   return (
                     <div className="each-slide-effect" key={i}>
-                      <div className="h-[460px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                      <div className="h-[460px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${d.photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                           <span></span>
                       </div>
                     </div>
@@ -119,7 +131,7 @@ export default function Undanganku({data}: CProps) {
               </motion.div>
             </div>
             <div className="bg-cyan py-[10px]">
-              <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">Neneng & Dadang</h3>
+              <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">{data.female_nickname} & {data.male_nickname}</h3>
             </div>
           </motion.div>
           <motion.div
@@ -169,7 +181,7 @@ export default function Undanganku({data}: CProps) {
                 }
               }}
             >
-              {moment("2023-12-12").format("MMM")}
+              {moment(data.resepsi_date).format("MMM")}
             </motion.div>
           </motion.div>
         </div>
@@ -246,8 +258,8 @@ export default function Undanganku({data}: CProps) {
               }
             }}
           >
-            <div className="text-6xl">{moment("2023-12-12").format("DD")}</div>
-            <div className="mt-1 text-3xl flex justify-end">{moment("2023-12-12").format("YYYY")}</div>
+            <div className="text-6xl">{moment(data.resepsi_date).format("DD")}</div>
+            <div className="mt-1 text-3xl flex justify-end">{moment(data.resepsi_date).format("YYYY")}</div>
           </motion.div>
         </div>
       </div>
@@ -364,6 +376,7 @@ export default function Undanganku({data}: CProps) {
           </div>
         </motion.div>
       </div>
+      {/* Mempelai Wanita */}
       <div className="pt-[5em]">
         <div className="flex">
           <motion.div
@@ -387,7 +400,11 @@ export default function Undanganku({data}: CProps) {
           </motion.div>
           <motion.div
             className="w-[60%] h-[300px] relative overflow-hidden"
-            style={{backgroundImage: `url(/sample/7.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}
+            style={{
+              backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "mempelai-wanita")[0].photo})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
             variants={{
               hidden: {
                 x: 200
@@ -426,7 +443,7 @@ export default function Undanganku({data}: CProps) {
                 }
               }}
             >
-              N
+              {data.female_nickname.slice(0, 1)}
             </motion.div>
           </motion.div>
         </div>
@@ -450,22 +467,27 @@ export default function Undanganku({data}: CProps) {
             }
           }}
         >
-          <div className="font-bodoni text-cyan text-right text-2xl pb-3">Neneng Spakbor Ngabers</div>
-          <div className="text-sm font-bold text-[#757575] text-right">Putri Pertama Dari</div>
-          <div className="text-sm text-[#757575] text-right">Bapak Komarudin dan Ibu Paijem</div>
+          <div className="font-bodoni text-cyan text-right text-2xl pb-3">{data.female_name}</div>
+          <div className="text-sm font-bold text-[#757575] text-right">Putri {data.female_children_to} Dari</div>
+          <div className="text-sm text-[#757575] text-right">Bapak {data.female_father_name} dan {data.female_mother_name}</div>
           <div className="mt-10 flex justify-end">
-            <Link href={"https://instagram.com"} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
+            <Link href={data.female_ig} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
               Instagram
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
         </motion.div>
       </div>
+      {/* Mempelai Pria */}
       <div className="pt-[2em]">
         <div className="flex">
           <motion.div
             className="w-[60%] h-[300px] relative overflow-hidden"
-            style={{backgroundImage: `url(/sample/8.jpg)`, backgroundSize: "cover", backgroundPosition: "center"}}
+            style={{
+              backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "mempelai-pria")[0].photo})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
             variants={{
               hidden: {
                 x: -100
@@ -504,7 +526,7 @@ export default function Undanganku({data}: CProps) {
                 }
               }}
             >
-              D
+              {data.male_nickname.slice(0, 1)}
             </motion.div>
           </motion.div>
           <motion.div
@@ -547,36 +569,37 @@ export default function Undanganku({data}: CProps) {
             }
           }}
         >
-          <div className="font-bodoni text-cyan text-left text-2xl pb-3">Dadang Kopling Matic</div>
-          <div className="text-sm font-bold text-[#757575] text-left">Putra Pertama Dari</div>
-          <div className="text-sm text-[#757575] text-left">Bapak Karni Ilyas dan Sulastri</div>
+          <div className="font-bodoni text-cyan text-left text-2xl pb-3">{data.male_name}</div>
+          <div className="text-sm font-bold text-[#757575] text-left">Putra {data.male_children_to} Dari</div>
+          <div className="text-sm text-[#757575] text-left">Bapak {data.male_father_name} dan {data.male_mother_name}</div>
           <div className="mt-10 flex justify-start">
-            <Link href={"https://instagram.com"} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
+            <Link href={data.male_ig} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
               Instagram
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
         </motion.div>
       </div>
+      {/* Akad & Resepsi */}
       <div className="mt-[2em] bg-cyan p-[1.5em]">
         <div className="w-[120px] mx-auto h-1 rounded-full bg-white mb-14"></div>
         <div className="relative">
-          <div className="h-[280px] overflow-hidden">
-            <Image src={"/sample/2.jpg"} width={327} height={280} alt="" />
+          <div className="overflow-hidden">
+            <Image src={`https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "akad")[0].photo}`} width={327} height={280} alt="" />
           </div>
           <div className="relative flex items-end top-[-70px]">
             <div className="flex-1 pr-4">
-              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12 09:00").format("DD")}</div>
-              <div className="text-right text-white text-3xl font-bodoni my-4">{moment("2023-12-12 09:00").format("MM")}</div>
-              <div className="text-right text-white text-3xl font-bodoni">{moment("2023-12-12 09:00").format("YY")}</div>
+              <div className="text-right text-white text-3xl font-bodoni">{moment(data.akad_date).format("DD")}</div>
+              <div className="text-right text-white text-3xl font-bodoni my-4">{moment(data.akad_date).format("MM")}</div>
+              <div className="text-right text-white text-3xl font-bodoni">{moment(data.akad_date).format("YY")}</div>
             </div>
             <div className="w-[80%] bg-white py-[2em] px-[1em]">
               <h2 className="text-2xl text-cyan uppercase text-right font-[500] tracking-[2px]">Akad Nikah</h2>
-              <div className="mt-5 text-sm text-[#757575] font-semibold text-right">{moment("2023-12-12 09:00").format("dddd, DD MMMM YYYY")}</div>
-              <div className="mb-4 text-sm text-[#757575] font-semibold text-right">Pukul {moment("2023-12-12 09:00").format("hh:mm")} WIB</div>
-              <div className="text-xs tracking-[1px] text-cyan text-right leading-4">Jl. H. Merin, No 28, RT 001 / RW 004 Meruya Selatan, Kembangan, Jakarta Barat</div>
+              <div className="mt-5 text-sm text-[#757575] font-semibold text-right">{moment(data.akad_date).format("dddd, DD MMMM YYYY")}</div>
+              <div className="mb-4 text-sm text-[#757575] font-semibold text-right">Pukul {moment(data.akad_date).format("hh:mm")} WIB</div>
+              <div className="text-xs tracking-[1px] text-cyan text-right leading-4">{data.akad_place}</div>
               <div className="mt-8 flex justify-end">
-                <Link href={"https://maps.google.com"} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
+                <Link href={`https://maps.google.com/maps/place/${data.akad_place}`} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
                   <span>Google Maps</span>
                   <BsArrowRight size={12} className="mt-0.5 ml-2"  />
                 </Link>
@@ -585,26 +608,26 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
         <div className="relative">
-          <div className="h-[280px] overflow-hidden">
-            <Image src={"/sample/2.jpg"} width={327} height={280} alt="" />
+          <div className="overflow-hidden">
+            <Image src={`https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "resepsi")[0].photo}`} width={327} height={280} alt="" />
           </div>
           <div className="relative flex items-end top-[-70px]">
             <div className="w-[80%] bg-white py-[2em] px-[1em]">
               <h2 className="text-2xl text-cyan uppercase text-left font-[500] tracking-[2px]">Resepsi</h2>
-              <div className="mt-5 text-sm text-[#757575] font-semibold text-left">{moment("2023-12-12 10:00").format("dddd, DD MMMM YYYY")}</div>
-              <div className="mb-4 text-sm text-[#757575] font-semibold text-left">Pukul {moment("2023-12-12 10:00").format("hh:mm")} WIB</div>
-              <div className="text-xs tracking-[1px] text-cyan text-left leading-4">Jl. H. Merin, No 28, RT 001 / RW 004 Meruya Selatan, Kembangan, Jakarta Barat</div>
+              <div className="mt-5 text-sm text-[#757575] font-semibold text-left">{moment(data.resepsi_date).format("dddd, DD MMMM YYYY")}</div>
+              <div className="mb-4 text-sm text-[#757575] font-semibold text-left">Pukul {moment(data.resepsi_date).format("hh:mm")} WIB</div>
+              <div className="text-xs tracking-[1px] text-cyan text-left leading-4">{data.resepsi_place}</div>
               <div className="mt-8 flex justify-start">
-                <Link href={"https://maps.google.com"} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
+                <Link href={`https://maps.google.com/maps/place/${data.resepsi_place}`} className="flex items-center font-bold text-xs text-cyan uppercase" target="_blank">
                   <span>Google Maps</span>
                   <BsArrowRight size={12} className="mt-0.5 ml-2"  />
                 </Link>
               </div>
             </div>
             <div className="flex-1 pl-4">
-              <div className="text-left text-white text-3xl font-bodoni">{moment("2023-12-12 10:00").format("DD")}</div>
-              <div className="text-left text-white text-3xl font-bodoni my-4">{moment("2023-12-12 10:00").format("MM")}</div>
-              <div className="text-left text-white text-3xl font-bodoni">{moment("2023-12-12 10:00").format("YY")}</div>
+              <div className="text-left text-white text-3xl font-bodoni">{moment(data.resepsi_date).format("DD")}</div>
+              <div className="text-left text-white text-3xl font-bodoni my-4">{moment(data.resepsi_date).format("MM")}</div>
+              <div className="text-left text-white text-3xl font-bodoni">{moment(data.resepsi_date).format("YY")}</div>
             </div>
           </div>
         </div>
@@ -640,6 +663,7 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
       </div>
+      {/* Gallery & Gift */}
       <div className="mt-[5em] bg-cyan p-[1em]">
         <div className="bg-white px-[1.5em] py-[5em]">
           <h2 className="text-3xl font-bodoni italic text-cyan text-center mb-10">Our Gallery</h2>
@@ -655,10 +679,10 @@ export default function Undanganku({data}: CProps) {
               slidesToScroll={1}
               slidesToShow={2}
             >
-              {images.map((d: any, i: number) => {
+              {galleryTop.map((d: any, i: number) => {
                 return (
                   <div className="each-slide-effect" key={i}>
-                    <div className="h-[140px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                    <div className="h-[140px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${d.photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                         <span></span>
                     </div>
                   </div>
@@ -678,10 +702,10 @@ export default function Undanganku({data}: CProps) {
               slidesToScroll={1}
               slidesToShow={2}
             >
-              {images.map((d: any, i: number) => {
+              {galleryBot.map((d: any, i: number) => {
                 return (
                   <div className="each-slide-effect rotate-180" key={i}>
-                    <div className="h-[140px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                    <div className="h-[140px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${d.photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                         <span></span>
                     </div>
                   </div>
@@ -765,10 +789,10 @@ export default function Undanganku({data}: CProps) {
       </div>
       <div className="relative h-[460px]">
         <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
-          {images.map((d: any, i: number) => {
+          {slideLast.map((d: any, i: number) => {
             return (
               <div className="each-slide-effect" key={i}>
-                <div className="h-[460px]" style={{backgroundImage: `url(${d})`, backgroundSize: "cover", backgroundPosition: "center"}}>
+                <div className="h-[460px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${d.photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
                     <span></span>
                 </div>
               </div>
@@ -792,7 +816,8 @@ export default function Undanganku({data}: CProps) {
           {pauseBackSound ? <FiPlayCircle size={22} /> : <FiActivity size={18} />}
         </div>
       </div>
-      <div className="hidden">
+      {/* Backsound */}
+      {/* <div className="hidden">
         <ReactAudioPlayer
           controls
           src="/assets/music.mp3"
@@ -800,7 +825,7 @@ export default function Undanganku({data}: CProps) {
           loop={true}
           ref={backSound}
         />
-      </div>
+      </div> */}
     </>
   )
 }
