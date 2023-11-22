@@ -3,7 +3,7 @@ import { Slide } from "react-slideshow-image";
 import moment from "moment";
 import { FaQuoteRight } from "react-icons/fa6";
 import { BsArrowRight } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMinus } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
@@ -78,7 +78,6 @@ export default function Undanganku({data}: CProps) {
         setSecond("00");
       }
     }, 1000);
-    console.log(data);
 
     setGalleryTop(data.photos.slice(0, chunk));
     setGalleryBot(data.photos.slice(chunk, chunk + data.photos.length));
@@ -122,7 +121,7 @@ export default function Undanganku({data}: CProps) {
                   return (
                     <div className="each-slide-effect" key={i}>
                       <div className="h-[460px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${d.photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
-                          <span></span>
+                        <span></span>
                       </div>
                     </div>
                   )
@@ -757,6 +756,7 @@ export default function Undanganku({data}: CProps) {
           <Image src={`https://undangan.loofytech.com/${data.photos.filter((photo: any) => !photo.prefix)[0].photo}`} width={420} height={200} alt="" />
         </div>
       </div>
+      {/* RSVP & Greetings */}
       <div className="px-[1em] py-[5em]" style={{backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #EFF2EC 100%)"}}>
         <h2 className="font-bodoni text-3xl text-cyan text-center italic">RSVP & Ucapan</h2>
         <div className="grid grid-cols-1 gap-[18px] px-5 mt-14">
@@ -765,6 +765,8 @@ export default function Undanganku({data}: CProps) {
             className="text-[13px] bg-white border-b border-cyan outline-none py-[4px] px-[6px] text-[#757575]"
             autoComplete="off"
             placeholder="Nama Kamu"
+            value={rts.query.to}
+            onChange={() => {}}
           />
           <input
             type="text"
@@ -789,7 +791,20 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
         {/* result command */}
-        <div className="mt-10 max-h-[400px] overflow-auto"></div>
+        {data.greetings.length > 0 && <div className="flex flex-col gap-3 mt-10 px-5 max-h-[400px] overflow-y-auto">
+          {data.greetings.map((as: any, it: number) => {
+            return (
+              <div key={it} className="bg-white p-3 border-b border-cyan">
+                <div className="text-sm text-cyan font-semibold">{as.pronouncer}</div>
+                <div className="flex items-center text-[11px] text-[#b9b9b9] gap-0.5">
+                  <AiOutlineMinus className="mt-0.5" />
+                  <span className="capitalize">{as.relation}</span>
+                </div>
+                <div className="text-sm leading-4 text-[#757575] mt-2">{as.greeting}</div>
+              </div>
+            )
+          })}
+        </div>}
         {/* end result command */}
         <div className="mt-20">
           <h2 className="text-center text-cyan uppercase font-semibold tracking-[2px]">Protokol Kesehatan</h2>
