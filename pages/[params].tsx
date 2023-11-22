@@ -21,7 +21,7 @@ export default function Undangan({to, data}: any) {
 
   return (
 		<main className={`max-w-[420px] ${font.className}`}>
-			{!open && <div className="h-screen relative" style={{backgroundImage: "url(/sample/2.jpg)", backgroundSize: "cover", backgroundPosition: "center"}}>
+			{!open && <div className="h-screen relative" style={{backgroundImage: `url(https://undangan.loofytech.com/${undangan.photos.filter((photo: any) => photo.prefix == "cover")[0].photo})`, backgroundSize: "cover", backgroundPosition: "center"}}>
 				<div className="absolute w-full h-full top-0 left-0 flex flex-col gap-5 justify-end items-center" style={{backgroundImage: "linear-gradient(180deg, #2A2E2400 55%, #2A2E24 100%)"}}>
 					<div className="">
 						<h3 className="tracking-[2px] text-center uppercase font-bodoni text-white">The Wedding Of</h3>

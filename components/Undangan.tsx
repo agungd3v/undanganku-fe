@@ -20,7 +20,7 @@ interface CProps {
 	data: any;
 }
 
-const chunk = 6;
+const chunk = 9;
 
 export default function Undanganku({data}: CProps) {
   const rts = useRouter();
@@ -77,6 +77,7 @@ export default function Undanganku({data}: CProps) {
         setSecond("00");
       }
     }, 1000);
+    console.log(data);
 
     setGalleryTop(data.photos.slice(0, chunk));
     setGalleryBot(data.photos.slice(chunk, chunk + data.photos.length));
@@ -632,10 +633,11 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
       </div>
+      {/* Love Story */}
       <div className="mt-[4em] px-[1em]">
         <div className="relative">
-          <div className="relative top-0 w-[80%] h-[250px]" style={{backgroundImage: "url(/sample/6.jpg)", backgroundSize: "cover"}}></div>
-          <div className="absolute bottom-[-160px] right-0 w-[55%] h-[230px] border-[9px] border-r-0 border-white" style={{backgroundImage: "url(/sample/2.jpg)", backgroundSize: "cover"}}></div>
+          <div className="relative top-0 w-[80%] h-[250px]" style={{backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "love-story")[0].photo})`, backgroundSize: "cover"}}></div>
+          <div className="absolute bottom-[-160px] right-0 w-[55%] h-[230px] border-[9px] border-r-0 border-white" style={{backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "love-story")[1].photo})`, backgroundSize: "cover"}}></div>
         </div>
         <div className="relative mt-10">
           <div className="font-bodoni leading-10 italic text-6xl text-cyan">
@@ -725,7 +727,7 @@ export default function Undanganku({data}: CProps) {
               </div>
             </div>
           </div>
-          <Image src={"/sample/3.jpg"} width={420} height={200} alt="" />
+          <Image src={`https://undangan.loofytech.com/${data.photos.filter((photo: any) => !photo.prefix)[0].photo}`} width={420} height={200} alt="" />
         </div>
       </div>
       <div className="px-[1em] py-[5em]" style={{backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #EFF2EC 100%)"}}>
@@ -817,15 +819,15 @@ export default function Undanganku({data}: CProps) {
         </div>
       </div>
       {/* Backsound */}
-      {/* <div className="hidden">
+      <div className="hidden">
         <ReactAudioPlayer
           controls
-          src="/assets/music.mp3"
+          src={`https://undangan.loofytech.com/${data.backsound_link}`}
           autoPlay={true}
           loop={true}
           ref={backSound}
         />
-      </div> */}
+      </div>
     </>
   )
 }
