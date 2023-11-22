@@ -470,7 +470,7 @@ export default function Undanganku({data}: CProps) {
         >
           <div className="font-bodoni text-cyan text-right text-2xl pb-3">{data.female_name}</div>
           <div className="text-sm font-bold text-[#757575] text-right">Putri {data.female_children_to} Dari</div>
-          <div className="text-sm text-[#757575] text-right">Bapak {data.female_father_name} dan {data.female_mother_name}</div>
+          <div className="text-sm text-[#757575] text-right">Bapak {data.female_father_name} dan Ibu {data.female_mother_name}</div>
           <div className="mt-10 flex justify-end">
             <Link href={data.female_ig} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
               Instagram
@@ -572,7 +572,7 @@ export default function Undanganku({data}: CProps) {
         >
           <div className="font-bodoni text-cyan text-left text-2xl pb-3">{data.male_name}</div>
           <div className="text-sm font-bold text-[#757575] text-left">Putra {data.male_children_to} Dari</div>
-          <div className="text-sm text-[#757575] text-left">Bapak {data.male_father_name} dan {data.male_mother_name}</div>
+          <div className="text-sm text-[#757575] text-left">Bapak {data.male_father_name} dan Ibu {data.male_mother_name}</div>
           <div className="mt-10 flex justify-start">
             <Link href={data.male_ig} className="flex items-center font-bold text-xs text-cyan uppercase tracking-[3px]" target="_blank">
               Instagram
@@ -806,7 +806,7 @@ export default function Undanganku({data}: CProps) {
             <h2 className="font-bodoni text-white text-4xl italic text-center mb-10">Terimakasih</h2>
             <p className="text-xs leading-4 text-white text-center mb-10">Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kami.</p>
             <p className="uppercase text-white text-sm font-bold text-center tracking-[2px] mb-2">Kami yang berbahagia</p>
-            <p className="font-bodoni text-white text-2xl text-center italic">Neneng & Dadang</p>
+            <p className="font-bodoni text-white text-2xl text-center italic">{data.female_nickname} & {data.male_nickname}</p>
           </div>
         </div>
       </div>
