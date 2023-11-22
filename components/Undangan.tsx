@@ -656,7 +656,7 @@ export default function Undanganku({data}: CProps) {
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Lamaran</h2>
-              <p className="italic text-[#757575] text-[13px] mt-3">Kehandak-Nya menuntun kami pada sebuah pertemuan yang tak pernah di sangka hingga akhirnya membawa kami pada sebuah ikatan suci yang dicintai-Nya, kami melangsungkan acara lamaran di bulan Februari 2023 lalu.</p>
+              <p className="italic text-[#757575] text-[13px] mt-3">Kehandak-Nya menuntun kami pada sebuah pertemuan yang tak pernah di sangka hingga akhirnya membawa kami pada sebuah ikatan suci yang dicintai-Nya, kami melangsungkan acara lamaran di bulan Oktober 2023 lalu.</p>
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Menikah</h2>
