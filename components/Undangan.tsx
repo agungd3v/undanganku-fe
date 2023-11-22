@@ -34,6 +34,7 @@ export default function Undanganku({data}: CProps) {
   const [slideLast, setSlideLast] = useState<any[]>([]);
   const [galleryTop, setGalleryTop] = useState<any[]>([]);
   const [galleryBot, setGalleryBot] = useState<any[]>([]);
+  const [greetings, setGreetings] = useState<any[]>([]);
   const [pauseBackSound, setPauseBackSound] = useState<boolean>(false);
   const backSound = useRef<any>(null);
 
@@ -79,6 +80,7 @@ export default function Undanganku({data}: CProps) {
       }
     }, 1000);
 
+    setGreetings(data.greetings.length > 0 ? data.greetings.sort((a: any, b: any) => b.id - a.id) : data.greetings);
     setGalleryTop(data.photos.slice(0, chunk));
     setGalleryBot(data.photos.slice(chunk, chunk + data.photos.length));
     setSlideFirst(data.photos.filter((sla: any) => sla.prefix == "slide1"));
@@ -791,8 +793,8 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
         {/* result command */}
-        {data.greetings.length > 0 && <div className="flex flex-col gap-3 mt-10 px-5 max-h-[400px] overflow-y-auto">
-          {data.greetings.map((as: any, it: number) => {
+        {greetings.length > 0 && <div className="flex flex-col gap-3 mt-10 px-5 max-h-[400px] overflow-y-auto">
+          {greetings.map((as: any, it: number) => {
             return (
               <div key={it} className="bg-white p-3 border-b border-cyan">
                 <div className="text-sm text-cyan font-semibold">{as.pronouncer}</div>
