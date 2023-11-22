@@ -3,6 +3,7 @@ import { Slide } from "react-slideshow-image";
 import moment from "moment";
 import { FaQuoteRight } from "react-icons/fa6";
 import { BsArrowRight } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
@@ -720,10 +721,36 @@ export default function Undanganku({data}: CProps) {
           <h2 className="text-3xl font-bodoni italic text-white text-center">Wedding Gift</h2>
           <p className="text-white text-[13px] leading-4 text-center mt-4">Mungkin karna jarak, waktu, ataupun keadaan yang menghalangi untuk ikut hadir dalam acara pernikahan kami, silahkan klik tombol dibawah untuk mengirimkan hadiah secara cashless</p>
           <div className="flex items-center justify-center mt-14 mb-10">
-            <div className="cursor-pointer border-y-2 py-[12px] px-[24px] uppercase tracking-[2px] flex items-center text-white text-xs font-bold gap-2">
+            <input id="gift" type="checkbox" className="drawer-toggle" />
+            <label htmlFor="gift" className="cursor-pointer border-y-2 py-[12px] px-[24px] uppercase tracking-[2px] flex items-center text-white text-xs font-bold gap-2">
               Klik Disini
               <div className="mt-1">
                 <BsArrowRight />
+              </div>
+            </label>
+            <div className="drawer-side">
+              <label htmlFor="gift" className="drawer-overlay"></label>
+              <div className="menu p-4 w-80 min-h-full text-cyan bg-white">
+                <div className="flex items-center gap-5">
+                  <label htmlFor="gift">
+                    <AiOutlineClose size={24} />
+                  </label>
+                  <span className="text-lg font-bodoni italic">Gift & Hadiah</span>
+                </div>
+                <div className="text-center mt-16 mb-10">
+                  Bagi bapak/ibu/saudara/i yang ingin mengirimkan hadiah pernikahan dapat melalui virtual account atau e-wallet di bawah ini:
+                </div>
+                <div className="flex flex-col items-center justify-center gap-5">
+                  {data.gifts.map((gift: any, iter: number) => {
+                    return (
+                      <div key={iter} className="text-xl text-black flex flex-col justify-center items-center">
+                        <Image src={`/assets/${gift.prefix}.png`} width={150} height={100} alt={gift.prefix} />
+                        <span className="leading-4 mt-2">{gift.gift_label}</span>
+                        <span>{gift.gift}</span>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
