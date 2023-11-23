@@ -95,28 +95,7 @@ export default function Undanganku({data}: CProps) {
     <>
       <div className="h-screen">
         <div className="flex items-start">
-          <motion.div
-            className="flex-1 relative overflow-hidden"
-            variants={{
-              hidden: {
-                opacity: 0,
-                x: -200
-              },
-              show: {
-                opacity: 1,
-                x: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              x: {
-                duration: 2
-              }
-            }}
-          >
+          <div className="flex-1 w-full relative overflow-hidden">
             <div className="h-[460px] relative">
               <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
                 {slideFirst.map((d: any, i: number) => {
@@ -129,238 +108,49 @@ export default function Undanganku({data}: CProps) {
                   )
                 })}
               </Slide>
-              <motion.div className="absolute z-10 bottom-0 w-full py-3" style={{backgroundImage: "linear-gradient(transparent, rgba(0, 0, 0, 0.4))"}}>
+              <div className="absolute z-10 bottom-0 w-full py-3" style={{backgroundImage: "linear-gradient(transparent, rgba(0, 0, 0, 0.4))"}}>
                 <h1 className="text-white text-center font-bold font-bodoni text-5xl">Wedding</h1>
-              </motion.div>
+              </div>
             </div>
             <div className="bg-cyan py-[10px]">
               <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">{data.female_nickname} & {data.male_nickname}</h3>
             </div>
-          </motion.div>
-          <motion.div
-            className="w-[20%] h-[460px] relative"
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -200
-              },
-              show: {
-                opacity: 1,
-                y: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              y: {
-                duration: 2
-              }
-            }}
-          >
+          </div>
+          <div className="w-[20%] h-[460px] relative">
             <div className="rotate-90 whitespace-nowrap absolute top-[70px] left-[-50px] text-cyan uppercase text-xs tracking-[5px]">
               The Wedding
             </div>
-            <motion.div
-              className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl"
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: 200
-                },
-                show: {
-                  opacity: 1,
-                  x: 0
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              transition={{
-                ease: "linear",
-                duration: 2,
-                x: {
-                  duration: 2
-                }
-              }}
-            >
+            <div className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl">
               {moment(data.resepsi_date).format("MMM")}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
         <div className="flex items-start gap-4">
           <div className="w-[65%] mt-6">
-            <motion.div
-              className="border-b-2 border-cyan relative"
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: -200
-                },
-                show: {
-                  opacity: 1,
-                  x: 0
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              transition={{
-                ease: "linear",
-                duration: 1,
-                x: {
-                  duration: 1
-                }
-              }}
-            >
+            <div className="border-b-2 border-cyan relative">
               <div className="absolute scale-x-[-1] opacity-10 top-2 left-2"><FaQuoteRight size={60} color="#95A682" /></div>
-            </motion.div>
-            <motion.div
-              className="relative text-cyan top-[36px] left-3 italic text-sm leading-4"
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: -200
-                },
-                show: {
-                  opacity: 1,
-                  x: 0
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              transition={{
-                ease: "linear",
-                duration: 2,
-                x: {
-                  duration: 2
-                }
-              }}
-            >
+            </div>
+            <div className="relative text-cyan top-[36px] left-3 italic text-sm leading-4">
               Love is when imperfection being perfection.
-            </motion.div>
+            </div>
           </div>
-          <motion.div
-            className="flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3"
-            variants={{
-              hidden: {
-                opacity: 0,
-                x: 200
-              },
-              show: {
-                opacity: 1,
-                x: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              x: {
-                duration: 2
-              }
-            }}
-          >
+          <div className="flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3">
             <div className="text-6xl">{moment(data.resepsi_date).format("DD")}</div>
             <div className="mt-1 text-3xl flex justify-end">{moment(data.resepsi_date).format("YYYY")}</div>
-          </motion.div>
+          </div>
         </div>
       </div>
       <div className="py-[5em] px-[1.5em] bg-cyan">
         <div className="flex items-center gap-4 overflow-hidden">
-          <motion.div
-            className="border-b border-white w-[48px]"
-            variants={{
-              hidden: {
-                opacity: 0,
-                x: -100
-              },
-              show: {
-                opacity: 1,
-                x: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              x: {
-                duration: 2
-              }
-            }}
-          ></motion.div>
-          <motion.div
-            className="text-white font-bodoni italic text-2xl"
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -100
-              },
-              show: {
-                opacity: 1,
-                y: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              y: {
-                duration: 2
-              }
-            }}
-          >
+          <div className="border-b border-white w-[48px]"></div>
+          <div className="text-white font-bodoni italic text-2xl">
             QS Ar-rum 21
-          </motion.div>
+          </div>
         </div>
-        <motion.div
-          className="italic text-white text-sm mt-8"
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 200
-            },
-            show: {
-              opacity: 1,
-              y: 0
-            }
-          }}
-          initial="hidden"
-          animate="show"
-          transition={{
-            ease: "linear",
-            duration: 2,
-            y: {
-              duration: 2
-            }
-          }}
-        >
+        <div className="italic text-white text-sm mt-8">
           "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-        </motion.div>
-        <motion.div
-          className="flex items-center justify-around border-t border-b border-white py-5 mt-16"
-          variants={{
-            hidden: {
-              opacity: 0,
-              x: 200
-            },
-            show: {
-              opacity: 1,
-              x: 0
-            }
-          }}
-          initial="hidden"
-          animate="show"
-          transition={{
-            ease: "linear",
-            duration: 2,
-            x: {
-              duration: 2
-            }
-          }}
-        >
+        </div>
+        <div className="flex items-center justify-around border-t border-b border-white py-5 mt-16">
           <div className="flex flex-col items-center font-bodoni text-white">
             <span className="text-2xl">{day}</span>
             <span className="text-sm">Hari</span>
@@ -377,99 +167,28 @@ export default function Undanganku({data}: CProps) {
             <span className="text-2xl">{second}</span>
             <span className="text-sm">Detik</span>
           </div>
-        </motion.div>
+        </div>
       </div>
       {/* Mempelai Wanita */}
       <div className="pt-[5em]">
         <div className="flex">
-          <motion.div
-            className="flex-1 relative"
-            variants={{
-              hidden: {
-                opacity: 0
-              },
-              show: {
-                opacity: 1
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2
-            }}
-          >
+          <div className="flex-1 relative">
             <div className="absolute rotate-[270deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] right-[-30px]">The Bride</div>
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className="w-[60%] h-[300px] relative overflow-hidden"
             style={{
               backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "mempelai-wanita")[0].photo})`,
               backgroundSize: "cover",
               backgroundPosition: "center"
             }}
-            variants={{
-              hidden: {
-                x: 200
-              },
-              show: {
-                x: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              x: {
-                duration: 2
-              }
-            }}
           >
-            <motion.div
-              className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold"
-              variants={{
-                hidden: {
-                  y: -100
-                },
-                show: {
-                  y: 0
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              transition={{
-                ease: "linear",
-                duration: 3,
-                y: {
-                  duration: 3
-                }
-              }}
-            >
+            <div className="absolute flex items-center left-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">
               {data.female_nickname.slice(0, 1)}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-        <motion.div
-          className="p-[32px]"
-          variants={{
-            hidden: {
-              x: 200
-            },
-            show: {
-              x: 0
-            }
-          }}
-          initial="hidden"
-          animate="show"
-          transition={{
-            ease: "linear",
-            duration: 2,
-            x: {
-              duration: 2
-            }
-          }}
-        >
+        <div className="p-[32px]">
           <div className="font-bodoni text-cyan text-right text-2xl pb-3">{data.female_name}</div>
           <div className="text-sm font-bold text-[#757575] text-right">Putri {data.female_children_to} Dari</div>
           <div className="text-sm text-[#757575] text-right">Bapak {data.female_father_name} dan Ibu {data.female_mother_name}</div>
@@ -479,99 +198,28 @@ export default function Undanganku({data}: CProps) {
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
       {/* Mempelai Pria */}
       <div className="pt-[2em]">
         <div className="flex">
-          <motion.div
+          <div
             className="w-[60%] h-[300px] relative overflow-hidden"
             style={{
               backgroundImage: `url(https://undangan.loofytech.com/${data.photos.filter((photo: any) => photo.prefix == "mempelai-pria")[0].photo})`,
               backgroundSize: "cover",
               backgroundPosition: "center"
             }}
-            variants={{
-              hidden: {
-                x: -100
-              },
-              show: {
-                x: 0
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2,
-              x: {
-                duration: 2
-              }
-            }}
           >
-            <motion.div
-              className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold"
-              variants={{
-                hidden: {
-                  y: -100
-                },
-                show: {
-                  y: 0
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              transition={{
-                ease: "linear",
-                duration: 3,
-                y: {
-                  duration: 3
-                }
-              }}
-            >
+            <div className="absolute flex items-center right-0 top-0 justify-center w-16 h-16 bg-cyan text-white font-bodoni text-2xl font-bold">
               {data.male_nickname.slice(0, 1)}
-            </motion.div>
-          </motion.div>
-          <motion.div
-            className="flex-1 relative"
-            variants={{
-              hidden: {
-                opacity: 0
-              },
-              show: {
-                opacity: 1
-              }
-            }}
-            initial="hidden"
-            animate="show"
-            transition={{
-              ease: "linear",
-              duration: 2
-            }}
-          >
+            </div>
+          </div>
+          <div className="flex-1 relative">
             <div className="absolute rotate-[90deg] uppercase text-xs text-cyan tracking-[4px] top-[130px] left-[-35px]">The Groom</div>
-          </motion.div>
+          </div>
         </div>
-        <motion.div
-          className="p-[32px]"
-          variants={{
-            hidden: {
-              x: -200
-            },
-            show: {
-              x: 0
-            }
-          }}
-          initial="hidden"
-          animate="show"
-          transition={{
-            ease: "linear",
-            duration: 2,
-            x: {
-              duration: 2
-            }
-          }}
-        >
+        <div className="p-[32px]">
           <div className="font-bodoni text-cyan text-left text-2xl pb-3">{data.male_name}</div>
           <div className="text-sm font-bold text-[#757575] text-left">Putra {data.male_children_to} Dari</div>
           <div className="text-sm text-[#757575] text-left">Bapak {data.male_father_name} dan Ibu {data.male_mother_name}</div>
@@ -581,7 +229,7 @@ export default function Undanganku({data}: CProps) {
               <BsArrowRight size={12} className="mt-0.5 ml-1"  />
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
       {/* Akad & Resepsi */}
       <div className="mt-[2em] bg-cyan p-[1.5em]">

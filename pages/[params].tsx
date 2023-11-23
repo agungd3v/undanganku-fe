@@ -9,6 +9,7 @@ import "react-slideshow-image/dist/styles.css";
 
 import Undanganku from "@/components/Undangan";
 import { useRouter } from "next/router";
+import { useEffectOnce } from "usehooks-ts";
 
 moment.locale("id");
 
@@ -22,6 +23,16 @@ export default function Undangan({to, data}: any) {
 
 	const [open, setOpen] = useState<boolean>(false);
 	const {undangan} = data;
+
+	const storeImage = async (imageUrl: string) => {
+		// const http = await fetch(imageUrl, {});
+		// const httpResponse = await http.blob();
+		// console.log(httpResponse);
+	}
+
+	useEffectOnce(() => {
+		storeImage(`https://undangan.loofytech.com/${undangan.photos.filter((photo: any) => photo.prefix == "cover")[0].photo}`);
+	});
 
   return (
 		<>
