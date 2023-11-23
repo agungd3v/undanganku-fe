@@ -41,13 +41,31 @@ export default function Undanganku({data}: CProps) {
   const [pauseBackSound, setPauseBackSound] = useState<boolean>(false);
   const backSound = useRef<any>(null);
 
-  const images = [
-    "/sample/1.jpg",
-    "/sample/2.jpg",
-    "/sample/3.jpg",
-    "/sample/4.jpg",
-    "/sample/5.jpg",
-  ];
+  const [pronouncer, setPronouncer] = useState<string>(rts.query.to?.toString() ?? "");
+  const [relation, setRelation] = useState<string>("");
+  const [greeting, setGreeting] = useState<string>("");
+
+  const sendGreetings = async () => {
+    try {
+      const http = await fetch("/api/greeting", {
+        method: "POST",
+        body: JSON.stringify({
+          undangan_id: data.id,
+          pronouncer: pronouncer,
+          relation: relation,
+          greeting: greeting
+        })
+      });
+
+      if (http.status == 200) {
+        const response = await http.json();
+        setGreetings((prevState: any) => [response.data, ...prevState]);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const toggleBackSound = () => {
     if (!pauseBackSound) {
@@ -100,6 +118,7 @@ export default function Undanganku({data}: CProps) {
         setSecond("00");
       }
     }, 1000);
+    // console.log(data);
 
     setGreetings(data.greetings.length > 0 ? data.greetings.sort((a: any, b: any) => b.id - a.id) : data.greetings);
     setGalleryTop(data.photos.slice(0, chunk));
@@ -163,6 +182,7 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
       </div>
+      {/* Countdown */}
       <div className="py-[5em] px-[1.5em] bg-cyan">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="border-b border-white w-[48px]"></div>
@@ -438,25 +458,32 @@ export default function Undanganku({data}: CProps) {
             className="text-[13px] bg-white border-b border-cyan outline-none py-[4px] px-[6px] text-[#757575]"
             autoComplete="off"
             placeholder="Nama Kamu"
-            value={rts.query.to}
-            onChange={() => {}}
+            defaultValue={rts.query.to}
+            onChange={(evt) => setPronouncer(evt.target.value)}
           />
           <input
             type="text"
             className="text-[13px] bg-white border-b border-cyan outline-none py-[4px] px-[6px] text-[#757575]"
             autoComplete="off"
             placeholder="Hubungan (Saudara, Teman Kerja, Teman Kuliah, dll)"
+            value={relation}
+            onChange={(evt) => setRelation(evt.target.value)}
           />
           <textarea
             className="text-[13px] bg-white border-b border-cyan outline-none py-[4px] px-[6px] text-[#757575]"
             autoComplete="off"
             placeholder="Berikan Ucapan & Doa terbaik untuk Kedua Mempelai"
             rows={4}
-          ></textarea>
+            value={greeting}
+            onChange={(evt) => setGreeting(evt.target.value)}
+          >
+            {/* {greeting} */}
+          </textarea>
           <div className="flex justify-center">
             <button
               type="button"
               className="flex items-center bg-cyan text-white uppercase gap-2 px-5 py-1.5 tracking-[2px] outline-none"
+              onClick={sendGreetings}
             >
               Send
               <BsArrowRight />
