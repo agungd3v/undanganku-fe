@@ -24,3 +24,21 @@ body {
 .font-bodoni {
   font-family: 'Bodoni Moda', 'Sans-serif';
 }
+
+.trans-left-prepered {
+  left: -100%;
+}
+
+.trans-left {
+  left: 0;
+  transition: left 1.5s ease-in-out;
+}
+
+.trans-top-prepered {
+  top: -100%;
+}
+
+.trans-top-70 {
+  top: 70px;
+  transition: top 1.5s ease-in-out;
+}

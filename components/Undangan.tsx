@@ -26,6 +26,9 @@ const chunk = 9;
 export default function Undanganku({data}: CProps) {
   const rts = useRouter();
 
+  const [transition1, setTransition1] = useState<boolean>(false);
+
+  const [hscroll, setHscroll] = useState<number>(0);
   const [day, setDay] = useState<string>("00");
   const [hour, setHour] = useState<string>("00");
   const [minute, setMinute] = useState<string>("00");
@@ -55,6 +58,24 @@ export default function Undanganku({data}: CProps) {
       return backSound.current.audioEl.current.play();
     }
   }
+
+  const scrollVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    setHscroll(scrolled);
+  }
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener('scroll', scrollVisible);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(hscroll);
+    if (hscroll == 0 && !transition1) {
+      setTransition1(true);
+    }
+  }, [hscroll]);
 
   useEffect(() => {
     const countdownWedding = setInterval(() => {
@@ -96,8 +117,8 @@ export default function Undanganku({data}: CProps) {
       <div className="h-screen">
         <div className="flex items-start">
           <div className="flex-1 w-full relative overflow-hidden">
-            <div className="h-[460px] relative">
-              <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
+            <div className={`h-[460px] relative trans-left-prepered ${transition1 ? "trans-left" : ""}`}>
+              <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={slideFirst.length > 0 ? true : false} infinite={true} canSwipe={false}>
                 {slideFirst.map((d: any, i: number) => {
                   return (
                     <div className="each-slide-effect" key={i}>
@@ -116,8 +137,10 @@ export default function Undanganku({data}: CProps) {
               <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">{data.female_nickname} & {data.male_nickname}</h3>
             </div>
           </div>
-          <div className="w-[20%] h-[460px] relative">
-            <div className="rotate-90 whitespace-nowrap absolute top-[70px] left-[-50px] text-cyan uppercase text-xs tracking-[5px]">
+          <div className={`w-[20%] h-[460px] relative`}>
+            <div
+              className={`rotate-90 whitespace-nowrap absolute left-[-50px] text-cyan uppercase text-xs tracking-[5px] trans-top-prepered ${transition1 ? "trans-top-70" : ""}`}
+            >
               The Wedding
             </div>
             <div className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl">
@@ -127,7 +150,7 @@ export default function Undanganku({data}: CProps) {
         </div>
         <div className="flex items-start gap-4">
           <div className="w-[65%] mt-6">
-            <div className="border-b-2 border-cyan relative">
+            <div className={`border-b-2 border-cyan relative trans-left-prepered ${transition1 ? "trans-left" : ""}`}>
               <div className="absolute scale-x-[-1] opacity-10 top-2 left-2"><FaQuoteRight size={60} color="#95A682" /></div>
             </div>
             <div className="relative text-cyan top-[36px] left-3 italic text-sm leading-4">
