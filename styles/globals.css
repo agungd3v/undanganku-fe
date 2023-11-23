@@ -34,6 +34,15 @@ body {
   transition: left 1.5s ease-in-out;
 }
 
+.trans-right-prepered {
+  right: -150%;
+}
+
+.trans-right {
+  right: 0;
+  transition: right 1.5s ease-in-out;
+}
+
 .trans-top-prepered {
   top: -100%;
 }
@@ -41,4 +50,13 @@ body {
 .trans-top-70 {
   top: 70px;
   transition: top 1.5s ease-in-out;
+}
+
+.trans-opacity-prepered {
+  opacity: 0;
+}
+
+.trans-opacity {
+  opacity: 1;
+  transition: opacity 2s linear;
 }

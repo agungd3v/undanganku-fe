@@ -137,13 +137,13 @@ export default function Undanganku({data}: CProps) {
               <h3 className="text-center text-white tracking-[4px] font-bold uppercase text-sm">{data.female_nickname} & {data.male_nickname}</h3>
             </div>
           </div>
-          <div className={`w-[20%] h-[460px] relative`}>
+          <div className="w-[20%] h-[460px] relative">
             <div
               className={`rotate-90 whitespace-nowrap absolute left-[-50px] text-cyan uppercase text-xs tracking-[5px] trans-top-prepered ${transition1 ? "trans-top-70" : ""}`}
             >
               The Wedding
             </div>
-            <div className="absolute bottom-[-45px] left-1 font-bodoni text-cyan font-bold text-3xl">
+            <div className={`absolute bottom-[-45px] left-1 font-bodoni text-cyan z-30 font-bold text-3xl trans-opacity-prepered ${transition1 ? "trans-opacity" : ""}`}>
               {moment(data.resepsi_date).format("MMM")}
             </div>
           </div>
@@ -153,13 +153,13 @@ export default function Undanganku({data}: CProps) {
             <div className={`border-b-2 border-cyan relative trans-left-prepered ${transition1 ? "trans-left" : ""}`}>
               <div className="absolute scale-x-[-1] opacity-10 top-2 left-2"><FaQuoteRight size={60} color="#95A682" /></div>
             </div>
-            <div className="relative text-cyan top-[36px] left-3 italic text-sm leading-4">
+            <div className={`relative text-cyan top-[36px] left-3 italic text-sm leading-4 trans-opacity-prepered ${transition1 ? "trans-opacity" : ""}`}>
               Love is when imperfection being perfection.
             </div>
           </div>
-          <div className="flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3">
-            <div className="text-6xl">{moment(data.resepsi_date).format("DD")}</div>
-            <div className="mt-1 text-3xl flex justify-end">{moment(data.resepsi_date).format("YYYY")}</div>
+          <div className={`overflow-hidden flex-1 flex flex-col text-cyan font-bodoni font-bold mt-2 pr-3`}>
+            <div className={`text-6xl relative trans-right-prepered ${transition1 ? "trans-right" : ""}`}>{moment(data.resepsi_date).format("DD")}</div>
+            <div className={`mt-1 text-3xl flex relative justify-end trans-right-prepered ${transition1 ? "trans-right" : ""}`}>{moment(data.resepsi_date).format("YYYY")}</div>
           </div>
         </div>
       </div>
