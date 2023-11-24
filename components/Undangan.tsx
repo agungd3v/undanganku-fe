@@ -341,11 +341,11 @@ export default function Undanganku({data}: CProps) {
           <div className="px-[2em] mt-24">
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Pertemuan</h2>
-              <p className="italic text-[#757575] text-[13px] mt-3">Tidak ada yang kebetulan di dunia ini, semua sudah tersusun rapih oleh sang maha kuasa, kita tidak bisa memilih kepada siapa kita akan jatuh cinta, kami bertemu pada tahun 2021, tepatnya saat kami sedang bekerja di kantor yang sama, tidak ada yang pernah menyangka bahwa pertemuan itu membawa kami pada suatu ikatan cinta suci hari ini.</p>
+              <p className="italic text-[#757575] text-[13px] mt-3">Tidak ada yang kebetulan di dunia ini, semua sudah tersusun rapih oleh sang maha kuasa, kita tidak bisa memilih kepada siapa kita akan jatuh cinta, kami bertemu 2022, awal mula kita kirim pesan melalui instagram lalu kita memutuskan untuk bertemu, dipertemuan pertama itupun kita langsung mengungkapkan isi hati kita.</p>
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Pendekatan</h2>
-              <p className="italic text-[#757575] text-[13px] text-right mt-3">Katanya cinta dapat tumbuh dengan kebersamaan, seiring berjalannya waktu kami semakin dekat, berada di kantor yang sama membuat kami cukup sering bertemu, memang tidak ada kata pacaran diantara kami tapi alam seakan terus berkonspirasi untuk menyatukan kami berdua.</p>
+              <p className="italic text-[#757575] text-[13px] text-right mt-3">Katanya cinta dapat tumbuh dengan kebersamaan, seiring berjalannya waktu kami semakin dekat, seiring berjalannya waktu akhirnya kita memutuskan untuk berpacaran dan serius untuk menjalani hubungan.</p>
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Lamaran</h2>
@@ -353,7 +353,7 @@ export default function Undanganku({data}: CProps) {
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Menikah</h2>
-              <p className="italic text-[#757575] text-[13px] text-right mt-3">Percayalah, bukan karna bertemu lalu berjodoh tapi karna berjodoh lah maka kami dipertemukan, kami memutuskan untuk mengikrarkan janji suci pernikahan kami di bulan November ini insya allah Sebagai mana yang pernah dikatakan oleh saydina Ali bin abi thalib : " Apa yang menjadi takdirmu akan menemukan jalannya untuk menemukanmu."</p>
+              <p className="italic text-[#757575] text-[13px] text-right mt-3">Percayalah, bukan karna bertemu lalu berjodoh tapi karna berjodoh lah maka kami dipertemukan, kami memutuskan untuk mengikrarkan janji suci pernikahan kami di bulan Januari ini insya allah Sebagai mana yang pernah dikatakan oleh saydina Ali bin abi thalib : " Apa yang menjadi takdirmu akan menemukan jalannya untuk menemukanmu."</p>
             </div>
           </div>
         </div>
