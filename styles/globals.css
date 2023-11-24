@@ -47,6 +47,11 @@ body {
   top: -100%;
 }
 
+.trans-top {
+  top: 0;
+  transition: top 1.5s ease-in-out;
+}
+
 .trans-top-70 {
   top: 70px;
   transition: top 1.5s ease-in-out;

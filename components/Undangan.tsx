@@ -27,6 +27,7 @@ export default function Undanganku({data}: CProps) {
   const rts = useRouter();
 
   const [transition1, setTransition1] = useState<boolean>(false);
+  const [transition2, setTransition2] = useState<boolean>(false);
 
   const [hscroll, setHscroll] = useState<number>(0);
   const [day, setDay] = useState<string>("00");
@@ -92,6 +93,9 @@ export default function Undanganku({data}: CProps) {
     console.log(hscroll);
     if (hscroll == 0 && !transition1) {
       setTransition1(true);
+    }
+    if (hscroll > 90 && !transition2) {
+      setTransition2(true);
     }
   }, [hscroll]);
 
@@ -183,17 +187,17 @@ export default function Undanganku({data}: CProps) {
         </div>
       </div>
       {/* Countdown */}
-      <div className="py-[5em] px-[1.5em] bg-cyan">
-        <div className="flex items-center gap-4 overflow-hidden">
+      <div className="py-[5em] px-[1.5em] bg-cyan overflow-hidden">
+        <div className={`flex items-center gap-4 relative trans-left-prepered ${transition2 ? "trans-left" : ""}`}>
           <div className="border-b border-white w-[48px]"></div>
           <div className="text-white font-bodoni italic text-2xl">
             QS Ar-rum 21
           </div>
         </div>
-        <div className="italic text-white text-sm mt-8">
+        <div className={`italic text-white text-sm mt-8 trans-opacity-prepered ${transition2 ? "trans-opacity" : ""}`}>
           "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
         </div>
-        <div className="flex items-center justify-around border-t border-b border-white py-5 mt-16">
+        <div className={`flex items-center justify-around border-t border-b border-white py-5 mt-16 relative trans-right-prepered ${transition2 ? "trans-right" : ""}`}>
           <div className="flex flex-col items-center font-bodoni text-white">
             <span className="text-2xl">{day}</span>
             <span className="text-sm">Hari</span>
