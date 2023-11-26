@@ -1,7 +1,10 @@
 import "@/styles/globals.css";
 import "@/styles/font.css";
 import type { AppProps } from "next/app";
+import { reduxWrapper } from "@/store";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function NextApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
+
+export default reduxWrapper.withRedux(NextApp);

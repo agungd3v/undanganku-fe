@@ -1,29 +1,32 @@
 import Image from "next/image";
+import { Palanquin } from "next/font/google";
 import { Slide } from "react-slideshow-image";
-import moment from "moment";
 import { FaQuoteRight } from "react-icons/fa6";
 import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineClose, AiOutlineMinus } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import ReactAudioPlayer from "react-audio-player";
 import { FiPlayCircle, FiActivity } from "react-icons/fi";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import moment from "moment";
+import ReactAudioPlayer from "react-audio-player";
 
 import "moment/locale/id";
 import "react-slideshow-image/dist/styles.css";
-import { useEffectOnce } from "usehooks-ts";
 
-moment.locale("id");
+const font = Palanquin({
+  subsets: ["latin"],
+  weight: ["400"]
+});
 
 interface CProps {
 	data: any;
+  subject?: string;
 }
 
 const chunk = 9;
 
-export default function Undanganku({data}: CProps) {
+export default function TheWeddingBody({data, subject}: CProps) {
   const rts = useRouter();
 
   const [transition1, setTransition1] = useState<boolean>(false);
@@ -42,7 +45,7 @@ export default function Undanganku({data}: CProps) {
   const [pauseBackSound, setPauseBackSound] = useState<boolean>(false);
   const backSound = useRef<any>(null);
 
-  const [pronouncer, setPronouncer] = useState<string>(rts.query.to?.toString() ?? "");
+  const [pronouncer, setPronouncer] = useState<string>(subject ?? "");
   const [relation, setRelation] = useState<string>("");
   const [greeting, setGreeting] = useState<string>("");
 
@@ -122,7 +125,6 @@ export default function Undanganku({data}: CProps) {
         setSecond("00");
       }
     }, 1000);
-    // console.log(data);
 
     setGreetings(data.greetings.length > 0 ? data.greetings.sort((a: any, b: any) => b.id - a.id) : data.greetings);
     setGalleryTop(data.photos.slice(0, chunk));
@@ -136,7 +138,7 @@ export default function Undanganku({data}: CProps) {
   }, [useState]);
 
   return (
-    <>
+    <main className={`max-w-[420px] ${font.className}`}>
       <div className="h-screen">
         <div className="flex items-start">
           <div className="flex-1 w-full relative overflow-hidden">
@@ -535,6 +537,7 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
       </div>
+      {/* Footer */}
       <div className="relative h-[460px]">
         <Slide arrows={false} duration={1000} indicators={false} transitionDuration={4000} autoplay={true} infinite={true} canSwipe={false}>
           {slideLast.map((d: any, i: number) => {
@@ -556,6 +559,7 @@ export default function Undanganku({data}: CProps) {
           </div>
         </div>
       </div>
+      {/* Toggle Playback */}
       <div
         className={`fixed w-[30px] h-[30px] bg-cyan p-0.5 bottom-3 right-3 rounded-full z-20 ${!pauseBackSound ? "animate-spin" : ""}`}
         onClick={toggleBackSound}
@@ -574,6 +578,6 @@ export default function Undanganku({data}: CProps) {
           ref={backSound}
         />
       </div>
-    </>
+    </main>
   )
 }
