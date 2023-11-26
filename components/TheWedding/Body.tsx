@@ -6,7 +6,6 @@ import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineClose, AiOutlineMinus } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { FiPlayCircle, FiActivity } from "react-icons/fi";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import moment from "moment";
 import ReactAudioPlayer from "react-audio-player";
@@ -27,8 +26,6 @@ interface CProps {
 const chunk = 9;
 
 export default function TheWeddingBody({data, subject}: CProps) {
-  const rts = useRouter();
-
   const [transition1, setTransition1] = useState<boolean>(false);
   const [transition2, setTransition2] = useState<boolean>(false);
 
@@ -464,7 +461,7 @@ export default function TheWeddingBody({data, subject}: CProps) {
             className="text-[13px] bg-white border-b border-cyan outline-none py-[4px] px-[6px] text-[#757575]"
             autoComplete="off"
             placeholder="Nama Kamu"
-            defaultValue={rts.query.to}
+            defaultValue={subject}
             onChange={(evt) => setPronouncer(evt.target.value)}
           />
           <input
