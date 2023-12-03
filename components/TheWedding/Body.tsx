@@ -558,7 +558,7 @@ export default function TheWeddingBody({data, subject}: CProps) {
       </div>
       {/* Toggle Playback */}
       <div
-        className={`fixed w-[30px] h-[30px] bg-cyan p-0.5 bottom-3 right-3 rounded-full z-20 ${!pauseBackSound ? "animate-spin" : ""}`}
+        className={`fixed w-[30px] h-[30px] bg-cyan p-0.5 bottom-3 right-3 rounded-full z-20 ${!pauseBackSound ? "spin-backsound" : ""}`}
         onClick={toggleBackSound}
       >
         <div className="w-full text-cyan h-full rounded-full bg-white flex items-center justify-center">

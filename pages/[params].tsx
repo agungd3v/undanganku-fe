@@ -2,8 +2,9 @@ import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useEffectOnce } from "usehooks-ts";
 import { useDispatch, useSelector } from "react-redux";
-import TheWedding from "@/components/TheWedding";
 import { selectTemplateUsed, setTemplateUsed } from "@/store/reducers/templateSlice";
+import TheWedding from "@/components/TheWedding";
+import SpiningFlowerBlack from "@/components/SpiningFlowerBlack";
 
 export default function Undangan({to, data}: any) {
 	const rts = useRouter();
@@ -13,6 +14,8 @@ export default function Undangan({to, data}: any) {
 
 	useEffectOnce(() => {
 		dispatch(setTemplateUsed(parseInt(undangan.id)));
+		// dispatch(setTemplateUsed(2));
+		// console.log(undangan);
 	});
 
   return (
@@ -42,6 +45,7 @@ export default function Undangan({to, data}: any) {
         }]}
       />
 			{templateUsed === 1 && <TheWedding data={undangan} subject={to} />}
+			{templateUsed === 2 && <SpiningFlowerBlack data={undangan} subject={to} />}
 		</>
   )
 }

@@ -1,7 +1,7 @@
-import { FaEnvelopeOpenText  } from "react-icons/fa6";
 import { Palanquin } from "next/font/google";
-import { useDispatch, useSelector } from "react-redux";
-import { selectTemplateOpen, setTemplateOpen } from "@/store/reducers/templateSlice";
+import { FaEnvelopeOpenText  } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { setTemplateOpen } from "@/store/reducers/templateSlice";
 
 const font = Palanquin({
   subsets: ["latin"],

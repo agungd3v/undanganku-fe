@@ -1,0 +1,199 @@
+{
+  "id": 1,
+  "template_id": "1",
+  "male_children_to": "Kedua",
+  "male_name": "Agung Dewantara",
+  "male_nickname": "Agung",
+  "male_father_name": "Wijoseno",
+  "male_mother_name": "Suwarti",
+  "male_contact": "081918773421",
+  "male_ig": "https://instagram.com/agungd3v",
+  "female_children_to": "Pertama",
+  "female_name": "May Prasetia Ningrum",
+  "female_nickname": "May",
+  "female_father_name": "Wagimin",
+  "female_mother_name": "Wahyu ningsih",
+  "female_contact": "0895376600631",
+  "female_ig": "https://instagram.com/agungd3v",
+  "akad_date": "2024-01-29 09:00:00",
+  "akad_place": "Jalan Manungal 1 Gang Kutilang 1 RT.10 RW.005 Kec. Iring Mulyo Kel. Metro Timur",
+  "resepsi_date": "2024-01-29 11:00:00",
+  "resepsi_place": "Jalan Manungal 1 Gang Kutilang 1 RT.10 RW.005 Kec. Iring Mulyo Kel. Metro Timur",
+  "backsound_link": "static/Batas Senja - Nanti Kita Seperti Ini.mp3",
+  "photos": [
+    {
+      "id": 1,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643864_2246.jpg",
+      "prefix": "cover",
+      "created_at": "2023-11-22T09:04:24.000000Z",
+      "updated_at": "2023-11-22T09:04:24.000000Z"
+    },
+    {
+      "id": 2,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643864_9397.jpg",
+      "prefix": "slide1",
+      "created_at": "2023-11-22T09:04:25.000000Z",
+      "updated_at": "2023-11-22T09:04:25.000000Z"
+    },
+    {
+      "id": 3,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643865_1709.jpg",
+      "prefix": "slide2",
+      "created_at": "2023-11-22T09:04:25.000000Z",
+      "updated_at": "2023-11-22T09:04:25.000000Z"
+    },
+    {
+      "id": 4,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643865_3878.jpg",
+      "prefix": "slide2",
+      "created_at": "2023-11-22T09:04:25.000000Z",
+      "updated_at": "2023-11-22T09:04:25.000000Z"
+    },
+    {
+      "id": 5,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643865_1830.jpg",
+      "prefix": "slide1",
+      "created_at": "2023-11-22T09:04:26.000000Z",
+      "updated_at": "2023-11-22T09:04:26.000000Z"
+    },
+    {
+      "id": 6,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643866_3552.jpg",
+      "prefix": "slide1",
+      "created_at": "2023-11-22T09:04:26.000000Z",
+      "updated_at": "2023-11-22T09:04:26.000000Z"
+    },
+    {
+      "id": 7,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643866_9672.jpg",
+      "prefix": "slide1",
+      "created_at": "2023-11-22T09:04:26.000000Z",
+      "updated_at": "2023-11-22T09:04:26.000000Z"
+    },
+    {
+      "id": 8,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643866_9110.jpg",
+      "prefix": "slide1",
+      "created_at": "2023-11-22T09:04:27.000000Z",
+      "updated_at": "2023-11-22T09:04:27.000000Z"
+    },
+    {
+      "id": 9,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643867_7521.jpg",
+      "prefix": null,
+      "created_at": "2023-11-22T09:04:27.000000Z",
+      "updated_at": "2023-11-22T09:04:27.000000Z"
+    },
+    {
+      "id": 10,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643867_5497.jpg",
+      "prefix": "slide2",
+      "created_at": "2023-11-22T09:04:27.000000Z",
+      "updated_at": "2023-11-22T09:04:27.000000Z"
+    },
+    {
+      "id": 11,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643867_1353.jpg",
+      "prefix": "slide2",
+      "created_at": "2023-11-22T09:04:28.000000Z",
+      "updated_at": "2023-11-22T09:04:28.000000Z"
+    },
+    {
+      "id": 12,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643868_5985.jpg",
+      "prefix": "slide2",
+      "created_at": "2023-11-22T09:04:28.000000Z",
+      "updated_at": "2023-11-22T09:04:28.000000Z"
+    },
+    {
+      "id": 13,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643868_4594.jpg",
+      "prefix": "love-story",
+      "created_at": "2023-11-22T09:04:28.000000Z",
+      "updated_at": "2023-11-22T09:04:28.000000Z"
+    },
+    {
+      "id": 14,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643868_9949.jpg",
+      "prefix": "love-story",
+      "created_at": "2023-11-22T09:04:29.000000Z",
+      "updated_at": "2023-11-22T09:04:29.000000Z"
+    },
+    {
+      "id": 15,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643869_2138.jpg",
+      "prefix": "akad",
+      "created_at": "2023-11-22T09:04:29.000000Z",
+      "updated_at": "2023-11-22T09:04:29.000000Z"
+    },
+    {
+      "id": 16,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643869_5976.jpg",
+      "prefix": "resepsi",
+      "created_at": "2023-11-22T09:04:29.000000Z",
+      "updated_at": "2023-11-22T09:04:29.000000Z"
+    },
+    {
+      "id": 17,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643869_860.jpg",
+      "prefix": "mempelai-pria",
+      "created_at": "2023-11-22T09:04:29.000000Z",
+      "updated_at": "2023-11-22T09:04:29.000000Z"
+    },
+    {
+      "id": 18,
+      "undangan_id": "1",
+      "photo": "undangan/may-agung/1700643869_6217.jpg",
+      "prefix": "mempelai-wanita",
+      "created_at": "2023-11-22T09:04:30.000000Z",
+      "updated_at": "2023-11-22T09:04:30.000000Z"
+    }
+  ],
+  "greetings": [
+    {
+      "id": 1,
+      "pronouncer": "Agung & Partner",
+      "relation": "Teman Kuliah",
+      "greeting": "Selamat bro"
+    }
+  ],
+  "gifts": [
+    {
+      "id": 1,
+      "undangan_id": "1",
+      "gift": "5625020929",
+      "gift_label": "May Prasetia Ningrum",
+      "prefix": "bca",
+      "image_prefix": "",
+      "created_at": "2023-11-22T09:04:24.000000Z",
+      "updated_at": "2023-11-22T09:04:24.000000Z"
+    },
+    {
+      "id": 2,
+      "undangan_id": "1",
+      "gift": "081272427776",
+      "gift_label": "May Prasetia",
+      "prefix": "dana",
+      "image_prefix": "",
+      "created_at": "2023-11-22T09:04:24.000000Z",
+      "updated_at": "2023-11-22T09:04:24.000000Z"
+    }
+  ]
+}
