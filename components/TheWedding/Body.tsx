@@ -344,7 +344,7 @@ export default function TheWeddingBody({data, subject}: CProps) {
           <div className="px-[2em] mt-24">
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-xl font-semibold">Pertemuan</h2>
-              <p className="italic text-[#757575] text-[13px] mt-3">Tidak ada yang kebetulan di dunia ini, semua sudah tersusun rapih oleh sang maha kuasa, kita tidak bisa memilih kepada siapa kita akan jatuh cinta, kami bertemu 2022, awal mula kita kirim pesan melalui instagram lalu kita memutuskan untuk bertemu, dipertemuan pertama itupun kita langsung mengungkapkan isi hati kita.</p>
+              <p className="italic text-[#757575] text-[13px] mt-3">Tidak ada kebetulan di dunia ini, semua sudah tersusun rapih oleh sang maha pencipta, kita tidak bisa memilih kepada siapa kita akan jatuh cinta. Singkat cerita kita bertemu di tahun 2022, awal mula kita saling berkirim pesan melalui instagram, lalu tak lama setelahnya memutuskan untuk bertemu, dipertemuan itulah kami saling bicara lebih dalam tentang satu sama lain.</p>
             </div>
             <div className="mt-10">
               <h2 className="text-cyan uppercase tracking-[2px] text-right text-xl font-semibold">Pendekatan</h2>
