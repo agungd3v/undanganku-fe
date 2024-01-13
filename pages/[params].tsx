@@ -13,7 +13,7 @@ export default function Undangan({to, data}: any) {
 	const dispatch = useDispatch();
 
 	useEffectOnce(() => {
-		dispatch(setTemplateUsed(parseInt(undangan.id)));
+		dispatch(setTemplateUsed(parseInt(undangan.template_id)));
 		// dispatch(setTemplateUsed(2));
 		// console.log(undangan);
 	});
